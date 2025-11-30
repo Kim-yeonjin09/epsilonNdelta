@@ -35,7 +35,7 @@
 <section id="HOME" > 
 <div class="wrapper">
     <div class="panel">
-        <h1> 들어가며 </h1>
+        <h1> 들어가며 </h1><br>
         <h3>수열의 극한</h3>
 
         수열의 극한에 대해 처음 공부할 때, 우리는 다음과 같은 정의를 배운다.
@@ -57,17 +57,26 @@
         <br><br>
         <b>[2] 발산하는 수열</b><br><br>
         <div style="text-align: center;">
-            수열 $\{a_n\}$에서 $n$의 값이 한없이 커질 때, 일반항 $a_n$의 값이 일정한 실수 $L$에 한없이 가까워지면
+            수열 $\{a_n\}$에서 $n$의 값이 한없이 커질 때, <br><br>
+
+            <div style="text-align:left;">① 일반항 $a_n$의 값도 한없이 커지면</div>
+            <br>
+            <b>
+                "수열 $\{a_n\}$이 양의 무한대로 발산한다(diverge to infinity)."
+            </b> <br><br>
+            라고 하고, 기호로 다음과 같이 나타낸다.<br><br>
+            <b>$\lim\limits_{n \to \infty} a_n = \infty$</b> &ensp; 또는  &ensp; <b>${n \to \infty}$일 때 ${a_n \to \infty}$</b>
+
             <br><br>
+
+            <div style="text-align:left;">② 일반항 $a_n$의 값이 한없이 작아지면</div>
+            <br>
             <b>
-                "수열 $\{a_n\}$이 $L$에 수렴한다(converge to L)."
+                "수열 $\{a_n\}$이 음의 무한대로 발산한다(diverge to negative infinity)."
             </b> <br><br>
-            또는<br><br>
-            <b>
-                "수열 $\{a_n\}$의 극한이 존재한다."
-            </b> <br><br>
-            라고 말한다. 이때 $L$을 수열 $\{a_n\}$의 극한값 또는 극한(limit)라고 부르고, 이것을 기호로 다음과 같이 나타낸다. <br><br>
-            <b>$\lim\limits_{n \to \infty} a_n = L$</b> &ensp; 또는  &ensp; <b>${n \to \infty}$일 때 ${a_n \to L}$</b>
+            라고 하고, 기호로 다음과 같이 나타낸다.<br><br>
+            <b>$\lim\limits_{n \to \infty} a_n = -\infty$</b> &ensp; 또는  &ensp; <b>${n \to \infty}$일 때 ${a_n \to -\infty}$</b>
+
         </div>
         <br><br>
         이 중 이 페이지에서 다루는 것은 <b> [1] 수렴하는 수열</b>의 <b>엄밀한 정의</b>이다.
@@ -119,10 +128,28 @@
       </div>
 
       <div class="info">
-        <p>수열은 <strong>d<sub>n</sub> = 1 / n</strong> km (n ≥ 1)라고 생각합니다. 시간이 n초 지나면 A와 B 사이 거리가 1/n km가 된다는 설정이에요.</p>
+        <!--<p>수열은 <strong>d<sub>n</sub> = 1 / n</strong> km (n ≥ 1)라고 생각합니다. 시간이 n초 지나면 A와 B 사이 거리가 1/n km가 된다는 설정이에요.</p>-->
         <p id="nInfo"></p>
         <p id="currentDist"></p>
       </div>
+
+      $\varepsilon$의 값은 0 초과 2 이하까지의 범위로 임의로 변경할 수 있다.<br>
+      어떤 $\varepsilon$에 대해서라도, 우리는 A를 움직여 A와 B 사이 거리를 $\varepsilon$(km) 보다 줄일 수 있다. $\varepsilon$ 값을 0에 가까워지도록 해도, A와 B가 <b>아주 가까이 가도록</b> 할 수 있다. <br><br>
+
+      A를 움직이는 것 대신, 자연수 $n$에 대해 A가 $n$초가 지날 때마다 $\frac{1}{n}$(km)씩 움직인다고 해 보자. <br>
+      (우리가 위에서 한 상호작용은 A를 움직여보며 $n$초가 지났을 때의 상황을 눈으로 확인한 것이다.) <br><br>
+      위의 상황과 비슷하게, $\frac{1}{\varepsilon}$초만큼 지나면 A와 B 사이 거리가 사용자가 지정한 $\varepsilon$(km) 보다 줄어들게 된다. <br>
+      $\varepsilon$ 값을 0에 가까워지도록 해도, $\frac{1}{\varepsilon}$초만큼 지나면 A와 B가 <b>아주 가까이 가도록</b> 할 수 있다. 
+
+        <b> 아주 가까이 갈 수 있다</b>는 것은 다음 말과도 동일하다. <br><br>
+      <div style="text-align: center">
+        <b> 
+            임의의 양수 $\varepsilon$에 대해 적절한 값($\frac{1}{\varepsilon}$)을 잡으면,<br>
+            $n$이 적절한 값보다 커질 때 A와 B 사이의 거리는 $\varepsilon$(km)보다 작아진다.
+        </b>
+      </div>
+      <br><br>
+      이것이 수렴하는 수열에서 극한의 엄밀한 정의의 핵심 아이디어이다.
     </div>
   </div>
 
@@ -135,6 +162,7 @@
     <div class="panel">
         <div>
         <h1> 수렴하는 수열의 극한의 엄밀한 정의 </h1>
+        <br>
         <!--<h3>수렴하는 수열의 극한의 엄밀한 정의</h3>-->
         <div>
         
@@ -143,16 +171,17 @@
             <br><br>
             를 엄밀하게 정의하면 다음과 같다. <br><br>
             
-            <div style="display: flex;">
-                <div style="display: block; text-align: center;">
+            <div class="def-row">
+                <div class="def-col def-col-left">
                     <h3>자연어로 되어있는 정의</h3>
                     임의의 양수 $\varepsilon$에 대하여<br>
                     자연수 $N$이 존재하여<br>
                     $n>N$ 일 때 $|a_n-L|<\varepsilon$이 된다.<br>
                 </div>
                 <br>
-                <div style="display: block; text-align: center;">
+                <div class="def-col def-col-right">
                     <h3>한정명제로 나타낸 정의</h3>
+                    <br>
                     $\forall~\varepsilon>0 ~\exists N\in\mathbb{N}~~\forall n:(n>N \rightarrow |a_n-L|<\varepsilon)$<br>
                 </div>
             </div>
@@ -168,6 +197,7 @@
     </section>
 </div>
 
+<!--JS 코드-->
   <script>
     (function () {
       const scene       = document.getElementById("scene");
@@ -222,20 +252,6 @@
         const eps = parseFloat(epsSlider.value);
         let radiusPx = eps * scale;
 
-        // ε = 0일 때: 원은 점처럼 만들고, N 계산은 하지 않음
-        if (eps <= 0) {
-            radiusPx = 0;
-            epsCircle.style.width  = "0px";
-            epsCircle.style.height = "0px";
-            epsCircle.style.left   = Bx + "px";
-            epsCircle.style.top    = baselineY + "px";
-
-            epsValue.textContent = "0.00 km";
-            nInfo.textContent =
-            "ε = 0 km 인 경우, ε–N 정의에서는 허용되지 않습니다. 항상 ε > 0 이어야 합니다.";
-            return;
-        }
-
         // ε > 0일 때는 원 정상 표시 + N 계산
         epsCircle.style.width  = radiusPx * 2 + "px";
         epsCircle.style.height = radiusPx * 2 + "px";
@@ -245,9 +261,9 @@
         epsValue.textContent = eps.toFixed(2) + " km";
 
         const N = Math.max(1, Math.ceil(1 / eps));
-        nInfo.textContent =
-            `ε = ${eps.toFixed(2)} km 일 때, A와 B 사이 거리가 ε 이하가 되려면 ` +
-            `최소 ${N}초 이후여야 합니다. (N = ${N})`;
+        //nInfo.textContent =
+            //`ε = ${eps.toFixed(2)} km 일 때, A와 B 사이 거리가 ε 이하가 되려면 ` +
+            //`최소 ${N}초 이후여야 합니다. (N = ${N})`;
         }
 
 
@@ -259,8 +275,8 @@
       function updateCurrentDist() {
         const Ax = A.offsetLeft;
         const distKm = Math.max(0, (Bx - Ax) / scale);
-        currentDist.textContent =
-          `지금 그림에서 A와 B의 거리는 약 ${distKm.toFixed(2)} km 입니다.`;
+        //currentDist.textContent =
+          //`지금 그림에서 A와 B의 거리는 약 ${distKm.toFixed(2)} km 입니다.`;
       }
 
       // ----- A 드래그 -----

@@ -93,10 +93,12 @@ header {
 
     /* ====== 장면 영역 ====== */
     .scene {
-      position: relative;
-      margin-top: 1.4rem;
-      height: 260px;
+    position: relative;
+    margin-top: 1.4rem;
+    height: 260px;
+    overflow: hidden; 
     }
+
 
     .baseline {
       position: absolute;
@@ -218,4 +220,23 @@ footer {
     /*font-size: 2rem;
     text-align: center;
     font-weight: bold;*/
+}
+
+.def-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;                
+  margin: 2rem 0 1rem;
+}
+
+.def-col {
+  flex: 1;               
+  text-align: center;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.def-col-left {
+  border-right: 2px solid #ddd;
 }
