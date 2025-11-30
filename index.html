@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({            
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}            
+        });
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+    <link rel="stylesheet" href="./style.css">
+  <title>수열 극한의 엄밀한 정의</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+<!-- 위쪽 툴바 -->
+<header>
+    <a class="title">
+        <h2> <h1>극한의 엄밀한 정의</h1> - 1. 수열의 극한</h2>
+        <br> <br>
+    </a>
+
+    
+    <ul> 
+        <li style="font-size: small; color: #e5dada;">
+            <br><br><br>
+            yjkim997(Kim-yeonjin09) 작성
+            <!--<a class = "HEAD" href="#HOME">들어가며</a>-->
+        </li>
+    </ul>
+</header>
+
+<section id="HOME" > 
+<div class="wrapper">
+    <div class="panel">
+        <h1> 들어가며 </h1>
+        <h3>수열의 극한</h3>
+
+        수열의 극한에 대해 처음 공부할 때, 우리는 다음과 같은 정의를 배운다.
+        <br><br>
+        <b>[1] 수렴하는 수열</b><br><br>
+        <div style="text-align: center;">
+            수열 $\{a_n\}$에서 $n$의 값이 한없이 커질 때, 일반항 $a_n$의 값이 일정한 실수 $L$에 한없이 가까워지면
+            <br><br>
+            <b>
+                "수열 $\{a_n\}$이 $L$에 수렴한다(converge to L)."
+            </b> <br><br>
+            또는<br><br>
+            <b>
+                "수열 $\{a_n\}$의 극한이 존재한다."
+            </b> <br><br>
+            라고 말한다. 이때 $L$을 수열 $\{a_n\}$의 극한값 또는 극한(limit)라고 부르고, 이것을 기호로 다음과 같이 나타낸다. <br><br>
+            <b>$\lim\limits_{n \to \infty} a_n = L$</b> &ensp; 또는  &ensp; <b>${n \to \infty}$일 때 ${a_n \to L}$</b>
+        </div>
+        <br><br>
+        <b>[2] 발산하는 수열</b><br><br>
+        <div style="text-align: center;">
+            수열 $\{a_n\}$에서 $n$의 값이 한없이 커질 때, 일반항 $a_n$의 값이 일정한 실수 $L$에 한없이 가까워지면
+            <br><br>
+            <b>
+                "수열 $\{a_n\}$이 $L$에 수렴한다(converge to L)."
+            </b> <br><br>
+            또는<br><br>
+            <b>
+                "수열 $\{a_n\}$의 극한이 존재한다."
+            </b> <br><br>
+            라고 말한다. 이때 $L$을 수열 $\{a_n\}$의 극한값 또는 극한(limit)라고 부르고, 이것을 기호로 다음과 같이 나타낸다. <br><br>
+            <b>$\lim\limits_{n \to \infty} a_n = L$</b> &ensp; 또는  &ensp; <b>${n \to \infty}$일 때 ${a_n \to L}$</b>
+        </div>
+        <br><br>
+        이 중 이 페이지에서 다루는 것은 <b> [1] 수렴하는 수열</b>의 <b>엄밀한 정의</b>이다.
+    </div>
+    </section>
+</div>
+<!-- 생각 열기 -->
+  <div class="wrapper">
+    <div class="panel">
+      <h1>생각 열기</h1>
+      <p>
+        수렴하는 수열의 정의에는 <b> "한없이 가까워진다"</b> 는 표현이 등장한다.<br><br>
+        <b> "한없이 가까워진다"</b> 는 말은 무슨 뜻일까? 아래의 그림에서 상호작용하며 한 번 그 뜻에 대해 생각해보자.
+      </p>
+    
+
+      <div class="scene" id="scene">
+        <div class="baseline" id="baseline"></div>
+
+        <!-- ε-원 -->
+        <div class="eps-circle" id="epsCircle"></div>
+
+        <!-- B (고정) -->
+        <div class="point B" id="pointB">
+          <div class="label">B</div>
+          <div class="sprite sprite-B"></div>
+        </div>
+
+        <!-- A (드래그 가능) -->
+        <div class="point A" id="pointA">
+          <div class="label">A</div>
+          <div class="sprite sprite-A"></div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label for="epsSlider">
+           $\varepsilon$ (km)
+          <input
+            type="range" 
+            id="epsSlider"
+            min="0.01"
+            max="2.0"
+            step="0.01"
+            value="0.30"
+          />
+        </label>
+        <span class="eps-value" id="epsValue">0.30 km</span>
+      </div>
+
+      <div class="info">
+        <p>수열은 <strong>d<sub>n</sub> = 1 / n</strong> km (n ≥ 1)라고 생각합니다. 시간이 n초 지나면 A와 B 사이 거리가 1/n km가 된다는 설정이에요.</p>
+        <p id="nInfo"></p>
+        <p id="currentDist"></p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<!-- 수렴하는 수열의 극한의 정의-->
+<section id="SEQ" > 
+<div class="wrapper">
+    <div class="panel">
+        <div>
+        <h1> 수렴하는 수열의 극한의 엄밀한 정의 </h1>
+        <!--<h3>수렴하는 수열의 극한의 엄밀한 정의</h3>-->
+        <div>
+        
+        <p style="text-align: center;">
+            <b>"실수열 $\{a_n\}$, 실수 $L$이 있을 때, 수열 $\{a_n\}$이 $L$에 수렴한다."</b>
+            <br><br>
+            를 엄밀하게 정의하면 다음과 같다. <br><br>
+            
+            <div style="display: flex;">
+                <div style="display: block; text-align: center;">
+                    <h3>자연어로 되어있는 정의</h3>
+                    임의의 양수 $\varepsilon$에 대하여<br>
+                    자연수 $N$이 존재하여<br>
+                    $n>N$ 일 때 $|a_n-L|<\varepsilon$이 된다.<br>
+                </div>
+                <br>
+                <div style="display: block; text-align: center;">
+                    <h3>한정명제로 나타낸 정의</h3>
+                    $\forall~\varepsilon>0 ~\exists N\in\mathbb{N}~~\forall n:(n>N \rightarrow |a_n-L|<\varepsilon)$<br>
+                </div>
+            </div>
+        </p>
+    
+        <br> 위의 정의를 통해, <b>수열의 극한 기본 공식</b> 1, 2 와 <b>수열의 극한 기본 정리</b>, <b>수열의 극한의 조임 정리</b> 등을 증명할 수 있다.
+        </div>
+        
+        </div>
+        
+        
+    </div>
+    </section>
+</div>
+
+  <script>
+    (function () {
+      const scene       = document.getElementById("scene");
+      const baseline    = document.getElementById("baseline");
+      const A           = document.getElementById("pointA");
+      const B           = document.getElementById("pointB");
+      const epsCircle   = document.getElementById("epsCircle");
+      const epsSlider   = document.getElementById("epsSlider");
+      const epsValue    = document.getElementById("epsValue");
+      const nInfo       = document.getElementById("nInfo");
+      const currentDist = document.getElementById("currentDist");
+
+      // 픽셀-킬로미터 스케일 (반응형이니 레이아웃 계산 후 갱신)
+      let scale = 150;       // px per 1km (대략 값, 실제값은 layout에서 다시 지정)
+      let baselineY = 0;
+      let leftX = 0;
+      let rightX = 0;
+      let Bx = 0;
+
+      // ----- 레이아웃 계산 -----
+      function layout() {
+        const rectBase  = baseline.getBoundingClientRect();
+        const rectScene = scene.getBoundingClientRect();
+
+        baselineY = rectBase.top - rectScene.top;
+        leftX     = rectBase.left - rectScene.left;
+        rightX    = rectBase.right - rectScene.left;
+
+        // B를 밑줄 위 70% 지점에 놓기
+        Bx = leftX + 0.7 * (rightX - leftX);
+        B.style.left = Bx + "px";
+        B.style.top  = baselineY + "px";
+
+        // 전체 밑줄 길이를 3km 정도로 보고 스케일 정함
+        scale = (rightX - leftX) / 3;  // 3km가 전체 길이
+
+        // 초기 A-B 거리는 2km
+        const initialDistKm = 2;
+        const Ax = Bx - initialDistKm * scale;
+        A.style.left = Ax + "px";
+        A.style.top  = baselineY + "px";
+
+        updateEpsCircle();
+        updateCurrentDist();
+      }
+
+      window.addEventListener("load", layout);
+      window.addEventListener("resize", layout);
+
+      // ----- ε 슬라이더 변경 시 -----
+      function updateEpsCircle() {
+        const eps = parseFloat(epsSlider.value);
+        let radiusPx = eps * scale;
+
+        // ε = 0일 때: 원은 점처럼 만들고, N 계산은 하지 않음
+        if (eps <= 0) {
+            radiusPx = 0;
+            epsCircle.style.width  = "0px";
+            epsCircle.style.height = "0px";
+            epsCircle.style.left   = Bx + "px";
+            epsCircle.style.top    = baselineY + "px";
+
+            epsValue.textContent = "0.00 km";
+            nInfo.textContent =
+            "ε = 0 km 인 경우, ε–N 정의에서는 허용되지 않습니다. 항상 ε > 0 이어야 합니다.";
+            return;
+        }
+
+        // ε > 0일 때는 원 정상 표시 + N 계산
+        epsCircle.style.width  = radiusPx * 2 + "px";
+        epsCircle.style.height = radiusPx * 2 + "px";
+        epsCircle.style.left   = Bx - radiusPx + "px";
+        epsCircle.style.top    = baselineY - radiusPx + "px";
+
+        epsValue.textContent = eps.toFixed(2) + " km";
+
+        const N = Math.max(1, Math.ceil(1 / eps));
+        nInfo.textContent =
+            `ε = ${eps.toFixed(2)} km 일 때, A와 B 사이 거리가 ε 이하가 되려면 ` +
+            `최소 ${N}초 이후여야 합니다. (N = ${N})`;
+        }
+
+
+      epsSlider.addEventListener("input", function () {
+        updateEpsCircle();
+      });
+
+      // ----- 현재 그림에서의 거리 표시 -----
+      function updateCurrentDist() {
+        const Ax = A.offsetLeft;
+        const distKm = Math.max(0, (Bx - Ax) / scale);
+        currentDist.textContent =
+          `지금 그림에서 A와 B의 거리는 약 ${distKm.toFixed(2)} km 입니다.`;
+      }
+
+      // ----- A 드래그 -----
+      let dragging = false;
+      let offsetX = 0;
+
+      function pointerDown(e) {
+        e.preventDefault();
+        dragging = true;
+        A.style.cursor = "grabbing";
+
+        const rectScene = scene.getBoundingClientRect();
+        offsetX = e.clientX - (rectScene.left + A.offsetLeft);
+
+        window.addEventListener("pointermove", pointerMove);
+        window.addEventListener("pointerup", pointerUp);
+      }
+
+      function pointerMove(e) {
+        if (!dragging) return;
+
+        const rectScene = scene.getBoundingClientRect();
+        let x = e.clientX - rectScene.left - offsetX;
+
+        const margin = 4;
+        const baselineMinX = leftX - margin;
+
+        // ★ B에서 최대 2km까지 허용
+        const maxDistKm = 2;
+        const minXByDistance = Bx - maxDistKm * scale; // Bx - 2km*scale
+
+        // 밑줄 자체의 범위와, 2km 제한 중 더 오른쪽 값을 사용
+        const minX = Math.max(baselineMinX, minXByDistance);
+
+        // A는 B까지(겹치기 허용) 이동 가능
+        const maxX = Bx;
+
+        if (x < minX) x = minX;
+        if (x > maxX) x = maxX;
+
+        A.style.left = x + "px";
+        updateCurrentDist();
+      }
+
+
+
+      function pointerUp() {
+        dragging = false;
+        A.style.cursor = "grab";
+        window.removeEventListener("pointermove", pointerMove);
+        window.removeEventListener("pointerup", pointerUp);
+      }
+
+      A.addEventListener("pointerdown", pointerDown);
+    })();
+  </script>
+
+  <footer>
+        <div style="text-align: center;">
+            © Contents 2025년판 미적분학 첫걸음<br>
+            © Designed by. 2025 <b><a href="https://github.com/Kim-yeonjin09" style="color: #ffffff;"> YJKIM. </a></b> All Rights Reserved
+            <!--Designed by <b>YJKIM</b>-->
+        </div>
+        <br>
+   </footer>
+
+
+</body>
+</html>

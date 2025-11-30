@@ -1,0 +1,221 @@
+html { 
+    font-size: 75%;
+    font-family: 'Pretendard';
+    font-style: normal;
+}
+body {
+      /*margin: 0;*/
+      padding: 2rem 1rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #fcf5f6;
+      /*display: flex;*/
+      justify-content: center;
+      user-select: none;
+}
+
+a { text-decoration: none; color: #000000;}
+* { box-sizing: border-box; }
+
+header {
+    display: flex;
+    border-radius: 18px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: #ffffff;
+    margin-bottom: 5vh;
+    /*position: fixed;*/
+    z-index: 1000;
+
+    .title {
+        font-family: 'Pretendard';
+        font-style: normal;
+        margin: 0px 30px 0px 30px;
+        color: #000000;
+        gap: 2rem;
+        align-items: center;
+        
+    }
+
+    .HEAD {
+        font-family: 'Pretendard';
+        font-style: normal;
+        color: #000000;
+    }
+
+    ul {
+        margin: 0px 10px 0px 30px;
+        padding: 0;
+        border: 0;
+        display: flex;
+        list-style: none;
+        justify-content: space-evenly;
+        li {
+            
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-size: 80%;
+            margin: 0px 10px 0px 10px;
+            padding: 1rem;
+        }
+        .li.curr {
+            text-decoration: underline 5px #000000;
+        }
+    }
+
+}
+
+
+
+    .wrapper {
+      width: 100%;
+      /*max-width: 960px;*/
+    }
+
+    .panel {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem 1.8rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      margin-bottom: 2vh;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.45rem;
+    }
+    .subtitle {
+      margin: 0.4rem 0 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* ====== 장면 영역 ====== */
+    .scene {
+      position: relative;
+      margin-top: 1.4rem;
+      height: 260px;
+    }
+
+    .baseline {
+      position: absolute;
+      left: 5%;
+      right: 5%;
+      top: 65%;
+      height: 3px;
+      background: #333;
+    }
+
+    /* A, B 공통 스타일 */
+    .point {
+      position: absolute;
+      width: 40px;
+      height: 80px;
+      transform: translate(-50%, -100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      cursor: grab;
+    }
+    .point.B {
+      cursor: default;
+    }
+
+    .label {
+      position: absolute;
+      top: -1.6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+    }
+
+    .sprite {
+      width: 100%;
+      height: 100%;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    /* 여기서부터 네가 스프라이트 이미지 연결하면 됨 */
+    .sprite-A {
+      /* 예시: background-image: url('A.png'); */
+      background-image: radial-gradient(circle at 50% 20%, #000 10%, transparent 11%),
+                       linear-gradient(#000 0 0);
+      background-size: 40% 40%, 2px 55%;
+      background-position: 50% 10%, 50% 100%;
+      background-repeat: no-repeat;
+    }
+    .sprite-B {
+      /* 예시: background-image: url('B.png'); */
+      background-image: radial-gradient(circle at 50% 20%, #000 10%, transparent 11%),
+                       linear-gradient(#000 0 0);
+      background-size: 40% 40%, 2px 55%;
+      background-position: 50% 10%, 50% 100%;
+      background-repeat: no-repeat;
+    }
+
+    /* ε-원 */
+    .eps-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(150,150,150,0.08);
+      border: 2px solid rgba(150,150,150,0.55);
+      pointer-events: none;
+    }
+
+    /* ====== 컨트롤 & 설명 ====== */
+    .controls {
+      margin-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    .controls label {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    input[type="range"] {
+      width: 220px;
+    }
+
+    .eps-value {
+      font-weight: 700;
+      color: #0053a6;
+    }
+
+    .info {
+      margin-top: 0.9rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .info strong {
+      font-weight: 700;
+    }
+
+    @media (max-width: 600px) {
+      .panel { padding: 1.2rem 1.2rem 1.4rem; }
+      .scene { height: 210px; }
+      .point { width: 32px; height: 64px; }
+      input[type="range"] { width: 180px; }
+    }
+
+footer {
+    font-size :130.35%;
+    font-family: 'Pretendard';
+    font-style: normal;
+    background-color: #e5d5d7;
+    color: #ffffff;
+    padding: 3rem;
+    /*font-size: 2rem;
+    text-align: center;
+    font-weight: bold;*/
+}
