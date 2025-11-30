@@ -17,7 +17,7 @@
 <body>
 <!-- 위쪽 툴바 -->
 <header>
-    <a class="title">
+    <a class="title" >
         <h2> <h1>극한의 엄밀한 정의</h1> - 1. 수열의 극한</h2>
         <br> <br>
     </a>
@@ -128,20 +128,23 @@
       </div>
 
       <div class="info">
-        <!--<p>수열은 <strong>d<sub>n</sub> = 1 / n</strong> km (n ≥ 1)라고 생각합니다. 시간이 n초 지나면 A와 B 사이 거리가 1/n km가 된다는 설정이에요.</p>-->
+        <div style="color: #797373;">*$\varepsilon$은 A가 B 근처에 들어와야 하는 허용 오차 범위(error)을 뜻한다. 즉, A가 이 원 안에 들어오면 '충분히 가까워졌다'고 생각한다.</div>
+        <p>이 예시에서는 시간 $n$초가 지날 때마다 A와 B의 거리가 $d_n=\frac{1}{n}(km)$로 주어진다고 생각할 수 있다. 즉, $\{d_n\}$이라는 수열이 B에 가까워지는 상황을 나타낸다.</p>
         <p id="nInfo"></p>
         <p id="currentDist"></p>
       </div>
+      
 
+      <br>
       $\varepsilon$의 값은 0 초과 2 이하까지의 범위로 임의로 변경할 수 있다.<br>
       어떤 $\varepsilon$에 대해서라도, 우리는 A를 움직여 A와 B 사이 거리를 $\varepsilon$(km) 보다 줄일 수 있다. $\varepsilon$ 값을 0에 가까워지도록 해도, A와 B가 <b>아주 가까이 가도록</b> 할 수 있다. <br><br>
-
+      
       A를 움직이는 것 대신, 자연수 $n$에 대해 A가 $n$초가 지날 때마다 $\frac{1}{n}$(km)씩 움직인다고 해 보자. <br>
       (우리가 위에서 한 상호작용은 A를 움직여보며 $n$초가 지났을 때의 상황을 눈으로 확인한 것이다.) <br><br>
       위의 상황과 비슷하게, $\frac{1}{\varepsilon}$초만큼 지나면 A와 B 사이 거리가 사용자가 지정한 $\varepsilon$(km) 보다 줄어들게 된다. <br>
       $\varepsilon$ 값을 0에 가까워지도록 해도, $\frac{1}{\varepsilon}$초만큼 지나면 A와 B가 <b>아주 가까이 가도록</b> 할 수 있다. 
 
-        <b> 아주 가까이 갈 수 있다</b>는 것은 다음 말과도 동일하다. <br><br>
+        <b> 아주 가까이 갈 수 있다</b>는 것은 다음 말과도 동일하다. 아래는 이를 논리적으로 표현한 것이다.<br><br>
       <div style="text-align: center">
         <b> 
             임의의 양수 $\varepsilon$에 대해 적절한 값($\frac{1}{\varepsilon}$)을 잡으면,<br>
@@ -149,7 +152,8 @@
         </b>
       </div>
       <br><br>
-      이것이 수렴하는 수열에서 극한의 엄밀한 정의의 핵심 아이디어이다.
+      이것이 수렴하는 수열에서 극한의 엄밀한 정의의 핵심 아이디어이다.<br>
+
     </div>
   </div>
 
@@ -335,14 +339,15 @@
   </script>
 
   <footer>
-        <div style="text-align: center;">
+        <div style="text-align: center; font-size: 75%;">
             © Contents 2025년판 미적분학 첫걸음<br>
             © Designed by. 2025 <b><a href="https://github.com/Kim-yeonjin09" style="color: #ffffff;"> YJKIM. </a></b> All Rights Reserved
             <!--Designed by <b>YJKIM</b>-->
         </div>
-        <br>
    </footer>
 
 
 </body>
 </html>
+
+
